@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIDI Sampler</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="audio-unlock-overlay" class="overlay">
+      <div class="overlay__content">
+        <h1 class="overlay__title">MIDI Sampler</h1>
+        <p>Click to Start</p>
+      </div>
+    </div>
+
+    <div id="app-container" class="app hidden">
+      <header class="header">
+        <h1 class="header__title">MIDI Sampler</h1>
+        <div class="menu">
+          <button id="burger-menu" class="menu__button">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div id="dropdown-menu" class="menu__dropdown hidden">
+            <button id="save-button" class="button">Save Mappings</button>
+            <button id="reset-button" class="button">Reset to Default</button>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content" class="main-content">
+        <div id="sample-container" class="sample-grid"></div>
+      </main>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

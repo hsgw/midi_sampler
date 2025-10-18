@@ -1,0 +1,215 @@
+:root {
+  /* Colors */
+  --color-primary: #ffdc40;
+  --color-background: #000000;
+  --color-surface: #000;
+  --color-surface-hover: #f7ffd8;
+  --color-text-primary: #333333;
+  --color-text-on-primary: #000;
+  --color-text-on-overlay: #ffdc40;
+  --color-text-on-color-surface: #fff;
+  --color-overlay-background: rgba(000, 000, 000, 0.8);
+  --color-waveform: #10aea6;
+  --color-playhead: #e05d4f;
+
+  /* Typography */
+  --font-family: sans-serif;
+  --header-font-size: 1rem;
+  --body-font-size: 1rem;
+
+  /* Sizing */
+  --header-height: 2rem;
+  --spacing-unit: 1rem;
+}
+
+/* ================================================================= */
+/* Global & Utilities                                                */
+/* ================================================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ================================================================= */
+/* Layout                                                            */
+/* ================================================================= */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 var(--spacing-unit);
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+.header h1 {
+  font-size: var(--header-font-size);
+  margin: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow: hidden; /* Ensures the grid doesn't overflow the page */
+}
+
+/* ================================================================= */
+/* Components                                                        */
+/* ================================================================= */
+
+/* --- Overlay --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-overlay-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: var(--color-text-on-overlay);
+}
+
+.overlay__content {
+  text-align: center;
+}
+
+.overlay__title {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-unit);
+}
+
+/* --- Button --- */
+.button {
+  padding: 0.8em 1.2em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--body-font-size);
+  background-color: var(--color-background);
+  color: var(--color-surface);
+  margin: 0.5em;
+}
+
+.button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+/* --- Menu --- */
+.menu {
+  position: relative;
+}
+
+.menu__button {
+  background: none;
+  border: none;
+  color: var(--color-text-on-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.menu__dropdown {
+  position: absolute;
+  top: 100%;
+  right: calc(var(--spacing-unit) * -1);
+  background-color: var(--color-primary);
+  z-index: 100;
+}
+
+.menu__dropdown .button {
+  display: block;
+  text-align: left;
+  background-color: var(--color-surface);
+  color: var(--color-text-on-color-surface);
+}
+
+/* --- Sample Grid --- */
+.sample-grid {
+  display: grid;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  gap: 2px;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+@media (orientation: portrait) {
+  .sample-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@media (orientation: landscape) {
+  .sample-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+/* --- Sample Item (Dynamically created) --- */
+.sample-item {
+  background-color: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.waveform {
+  flex-grow: 1;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.waveform:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.waveform-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sample-settings {
+  padding: var(--spacing-unit);
+  background-color: var(--color-primary);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-unit);
+}
+
+.sample-settings > div {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) / 2);
+}
+
+.note-input {
+  width: 60px;
+}
+
+.sample-select {
+  min-width: 180px;
+}
