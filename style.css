@@ -125,6 +125,7 @@ body {
   color: var(--color-text-on-primary);
   font-size: 1.5rem;
   cursor: pointer;
+  outline: none; /* Remove focus outline on click */
 }
 
 .menu__dropdown {
@@ -133,13 +134,27 @@ body {
   right: calc(var(--spacing-unit) * -1);
   background-color: var(--color-primary);
   z-index: 100;
+  padding: 0.5em;
 }
 
 .menu__dropdown .button {
   display: block;
+  width: 100%;
+  margin: 0 0 0.5em 0;
   text-align: left;
   background-color: var(--color-surface);
   color: var(--color-text-on-color-surface);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu__dropdown .button:last-child {
+  margin-bottom: 0;
+}
+
+.menu__dropdown .button .fa-brands {
+  margin-right: 0.5em;
+  width: 1.2em; /* To align text with other buttons */
 }
 
 /* --- Sample Grid --- */
