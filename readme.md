@@ -2,7 +2,7 @@
 
 A simple, browser-based MIDI sampler built with the Web Audio and Web MIDI APIs. Connect your MIDI controller, map your notes, and start playing!
 
-**[➡️ Live Demo](https://hsgw.github.io/midi-sampler/)**
+**[➡️ Live Demo](https://hsgw.github.io/midi_sampler/)**
 
 ---
 
